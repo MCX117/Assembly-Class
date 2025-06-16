@@ -24,3 +24,7 @@
     i = mt' + tm' + tm
     tm' + tm = t(m'+m) = t(1) = t
     i = mt' + t <--- This...
+
+Challenges: The whole things was kind of hard. I get boolean, but grouping terms efficiently and remembering certain
+ideas was rough, given that I was trying to do it all in a short timeframe. I need to brush up on this and be better
+prepared.
