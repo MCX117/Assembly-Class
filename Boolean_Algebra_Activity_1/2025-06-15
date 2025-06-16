@@ -1,0 +1,26 @@
+1. So I need to simplify the following equation:
+  F = A'B'C' + A'B'C + A'BC + AB'C + ABC'
+      Grouping:
+        Group 1: A'B'(C'+C) = A'B'(1) = A'B'
+        Group 2: A'BC+ABC'
+        Group 3: AB'C
+      Thus: F = A'B' + A'BC + AB'C + ABC'
+      
+      A'BC+ABC' = B(CA'+AC') = B(A'C+AC') = B(A xor C)
+      Thus:
+        F = A'B' + AB'C + B(A xor C)
+        or
+        F = A'B' + AB'C + A'BC + ABC' (since... Idk if we use xor?)
+
+2. So I'm given the following:
+  m = motion sensed
+  t = test mode
+  i = illuminate lamp
+  I need to:
+    > Illuminate lamp if motion and not test mode,
+    > or if test mode and no motion,
+    > or if test mode and motion.
+
+    i = mt' + tm' + tm
+    tm' + tm = t(m'+m) = t(1) = t
+    i = mt' + t <--- This...
