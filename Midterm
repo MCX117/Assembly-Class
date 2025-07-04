@@ -1,0 +1,55 @@
+SYS_EXIT  equ 1
+SYS_WRITE equ 4
+STDOUT    equ 1
+
+section .bss
+    result resb 1
+
+section .data
+    var1 db 7
+    var2 db 9
+    var3 db 12
+    msg db "Result: "
+    len1  equ $ - msg
+    newline db 0xA
+
+section .text
+global _start
+
+_start:
+    mov al, [var1]
+    add al, 2
+    mov bl, [var3]
+    sub bl, [var2]
+
+    div bl
+    mov [result], al
+
+    mov eax, SYS_WRITE       ;This is just for the string for: Result
+    mov ebx, STDOUT
+    mov ecx, msg
+    mov edx, len1
+    int 0x80
+
+    mov al, [result]    
+
+    add byte [result], '0'    ;This is to print out [results]
+    mov eax, SYS_WRITE
+    mov ebx, STDOUT
+    mov ecx, result
+    mov edx, 1
+    int 0x80
+
+    mov eax, SYS_WRITE        ;Added a newline to print because it bothers me
+    mov ebx, STDOUT
+    mov ecx, newline
+    mov edx, 1
+    int 0x80
+    
+    mov eax, SYS_EXIT    ;This is to get on out of here!
+    int 0x80
+
+
+
+;GOAL result = (var1 + 2) / (var3 - var2)
+;The assembly code should display the result variable on the console screen
