@@ -1,0 +1,24 @@
+section .text
+    global _start
+
+_start:
+    mov al, [var1]
+    mov bl, 2
+    mul bl             ;Assigns the product to ax
+    mov dl, [var2]
+    sub dl, 3
+    div dl
+    mov [result], al   ;So the quotient should go to top dog (al) and the remainder to dl
+    
+    mov eax, 1
+    int 0x80
+
+segment .data
+    var1 db 20
+    var2 db 5
+
+segment .bss
+    result resw 1    ;So there's no overflow -- resw instead of resb
+
+; GOAL: result = (var1 * 2) / (var2 - 3)
+; [result] is a noninitiated variable
