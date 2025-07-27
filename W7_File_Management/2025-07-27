@@ -1,0 +1,7 @@
+Challenges in performing the lab:
+
+The challenges I faced performing the lab are:
+  > trying to remember the new registers and numbers. 
+  > learning bout the appending instructions (i.e. sys_lseek). I had to play around with the offset value to get it right.
+  > I could have easily just copied the lecture examples, but I dived into setting the edx register to 0777o when opening a file.
+    Turns out, it was just permissions.
